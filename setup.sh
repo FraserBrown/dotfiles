@@ -13,26 +13,31 @@ function help_display() {
             by copying my preffered config files into the desired location.\n"
     echo -e "command options: \n\
             -v: vim setup \n\
-            -e: emacs setup \n\
-            -d  destination dir (install directory)\n\
-            -V  verbose mode\
+            -e:   emacs setup \n\
+            -b:   bash setup \n\
+            -d:   destination dir (install directory)\n\
+            -V:   verbose mode\
             \n "
 }
 
 # basic vim setup
 function vim_setup() {
-    $(cp -R .vim/ ${INSTALL_DIR})
+    $(cp -r .vim ${INSTALL_DIR})
     $(cp .vimrc ${INSTALL_DIR})
 }
 
 # basic emacs setup
 function emacs_setup() {
-    $(cp -R .emacs.d/ ${INSTALL_DIR})
+    $(cp -r .emacs.d ${INSTALL_DIR})
     $(cp .emacs ${INSTALL_DIR})
 }
 
-
-# TODO: Check OS running on as it changes the CP command.
+# basic bash Setup
+function bash_setup() {
+    # TODO: Customise install for different bash .files
+    # current functionallity is just for .bashrc
+    $(cp -r .bashrc ${INSTALL_DIR})
+}
 
 while getopts "Vhbved:" opt
 do
@@ -60,7 +65,7 @@ do
             help_display # call help function
             echo "invalide option -${OPTARG}" >&2
             ;;
-        *)
+        :)
             echo "Option -${OPTARG} requires an argument." >&2
             ;;
     esac
