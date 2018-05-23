@@ -34,7 +34,8 @@ function emacs_setup() {
 
 # TODO: Check OS running on as it changes the CP command.
 
-while getopts "vedbVh:" opt; do
+while getopts "Vhbved:" opt
+do
     case "$opt" in
         v)
             echo "Strating Vim Setup" >&2
@@ -59,7 +60,7 @@ while getopts "vedbVh:" opt; do
             help_display # call help function
             echo "invalide option -${OPTARG}" >&2
             ;;
-        :)
+        *)
             echo "Option -${OPTARG} requires an argument." >&2
             ;;
     esac
