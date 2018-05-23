@@ -2,7 +2,7 @@
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
-INSTALL_DIR='~/'
+INSTALL_DIR="~/"
 verbose=0
 
 
@@ -32,16 +32,25 @@ function emacs_setup() {
 }
 
 
-while getopts "vedVh:" opt; do
-    case "${opt}" in
+# TODO: Check OS running on as it changes the CP command.
+
+while getopts "vedbVh:" opt; do
+    case "$opt" in
         v)
             echo "Strating Vim Setup" >&2
+            vim_setup
             ;;
         e)
             echo "Starting Emacs Setup" >&2
+            emacs_setup
             ;;
         d)
+            echo "Setting Install Dir $OPTARG" >&2
             INSTALL_DIR=${OPTARG}
+            ;;
+        b)
+            echo "Starting Bash Setup"
+            # bash_setup
             ;;
         V)
             verbose=1
@@ -55,7 +64,4 @@ while getopts "vedVh:" opt; do
             ;;
     esac
 done
-
-
-
-
+shift "$((OPTIND-1))"

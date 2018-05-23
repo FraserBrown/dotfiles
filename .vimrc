@@ -5,7 +5,7 @@
 
 
 " use Pathogen
-execute pathogen#infect()
+" execute pathogen#infect()
 
 "call pathogen#runtime_append_all_bundles()  " use pathogen
 
