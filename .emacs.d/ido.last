@@ -1,0 +1,51 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/fraserbrown/Documents/progamming-practice/cpp-practice/student/" . "src/")
+ ("/Users/fraserbrown/Documents/progamming-practice/cpp-practice/" . "student/")
+ ("/Users/fraserbrown/Documents/progamming-practice/" . "cpp-practice/")
+ ("/Users/fraserbrown/Documents/" . "progamming-practice/")
+ ("/Users/fraserbrown/" . "Documents/")
+ ("/" . ".DocumentRevisions-V100/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/fraserbrown/.emacs.d/"
+ "/Users/fraserbrown/Documents/progamming-practice/cpp-practice/student/src/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "Student.cpp"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/fraserbrown/.emacs.d/elpa/" (23320 22372 0 0) "yasnippet-0.13.0/" "which-key-3.1.0/" "use-package-20180314.1143/" "try-20170226.805/" "s-20180406.108/" "rtags-20180604.1145/" "popup-20160709.729/" "pkg-info-20150517.443/" "moe-theme-20180603.2305/" "levenshtein-20090830.340/" "irony-20180519.422/" "ggtags-0.8.12/" "flycheck-20180527.918/" "epl-20180205.1249/" "dash-20180413.30/" "color-theme-20070910.1007/" "cmake-mode-20180104.1137/" "cmake-ide-20180521.743/" "bind-key-20180512.2130/" "auto-complete-clang-20140409.52/" "auto-complete-20170124.1845/" "archives/" "../" "./")
+
+ ("/Users/fraserbrown/.emacs.d/" (23320 24998 0 0) "themes/" "snippets/" "readme.org" "org-9.1.6/" "network-security.data" "init.el~" "init.el" "ido.last~" "ido.last" "elpa/" "auto-save-list/" "ac-comphist.dat" ".init.el~" "../" "./")
+
+ ("/Users/fraserbrown/.emacs.d/elpa/color-theme-20070910.1007/" (23320 24998 0 0) "themes/" "color-theme.elc" "color-theme.el" "color-theme-pkg.el" "color-theme-autoloads.el" "../" "./")
+
+ ("/Users/fraserbrown/" (23320 24117 0 0) "Vulnhub/" "VirtualBox VMs/" "terminal-custom-themes/" "system-config-linux/" "Public/" "Projects/" "Pictures/" "PaladinTemp/" "Music/" "Movies/" "Library/" "isos/" "eclipse-workspace/" "eclipse-themes/" "Downloads/" "Documents/" "Desktop/" "colors/" "bundle/" "autoload/" "Applications/" ".Xauthority" ".x2goclient/" ".x2go/" ".vscode/" ".vimrc~" ".vimrc" ".viminfo" ".vim/" ".Trash/" ".tooling/" ".templateengine/" ".subversion/" ".ssh/" ".ServiceHub/" ".rnd" ".python_history" ".pylint.d/" ".p2/" ".oracle_jre_usage/" ".npm/" ".mono/" ".matplotlib/" ".m2/" ".local/" ".lesshst" ".idlerc/" ".IdentityService/" ".gitconfig" ".emacs~" ".emacs.d/" ".emacs-old" ".eclipse/" ".DS_Store" ".dia-etc/" ".config/" ".CFUserTextEncoding" ".cache/" ".bash_sessions/" ".bash_profile~" ".bash_profile.pysave" ".bash_profile" ".bash_history" ".atom/" ".android/" "../" "./")
+
+ ("/Users/fraserbrown/Documents/progamming-practice/cpp-practice/student/src/" (23319 63261 0 0) "Student.cpp~" "Student.cpp" "mainapp.cpp~" "mainapp.cpp" "CMakeLists.txt" "../" "./")
+
+ ("/Users/fraserbrown/Documents/progamming-practice/cpp-practice/student/" (23319 62065 0 0) "src/" "include/" "../" "./")
+
+ ("/Users/fraserbrown/Documents/progamming-practice/cpp-practice/helloworld/" (23320 2402 0 0) "Makefile" "helloworld.cpp~" "helloworld.cpp" "hello" "CMakeLists.txt~" "CMakeLists.txt" "CMakeFiles/" "CMakeCache.txt" "cmake_install.cmake" "../" "./")
+
+ ("/Users/fraserbrown/Documents/progamming-practice/cpp-practice/" (23319 61080 0 0) "student/" "helloworld/" "../" "./")
+
+ ("/Users/fraserbrown/Documents/progamming-practice/" (23319 63019 0 0) "python-practice/" "cpp-practice/" "c-practice/" "../" "./")
+
+ ("/Users/fraserbrown/Documents/" (23319 47052 0 0) "Vulkan/" "Virtual Machines.localized/" "university/" "system-config-linux/" "receipts/" "PyPDG-Antivenom/" "progamming-practice/" "portfolio/" "pictures/" "grad-jobs/" "exterity/" "books/" ".localized" ".DS_Store" "../" "./")
+
+ ("/Users/" (22940 27566 0 0) "Shared/" "Guest/" "fraserbrown/" ".localized" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

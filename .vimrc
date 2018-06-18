@@ -13,7 +13,8 @@ let mapleader = ','     " leader is a comma
 
 syntax enable " enable syntax processing
 "colorscheme Oceanic "desert change colour scheme
-colorscheme dracula
+color dracula
+"color challenger_deep
 
 filetype plugin indent on
 

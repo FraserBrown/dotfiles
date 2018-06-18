@@ -1,0 +1,164 @@
+#+STARTIP: overview
+
+* interface tweaks
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-message t)
+  (tool-bar-mode -1)
+  (fset 'yes-or-no-p 'y-or-n-p)
+  (global-set-key (kbd "<f5>") 'revert-buffer)
+  (when window-system (set-frame-size (selected-frame) 149 60))
+
+
+  ;; mac option and command button swap
+  (setq mac-command-modifier 'meta
+        mac-option-modifier 'none)
+
+#+END_SRC
+
+* try
+  try packages before install for length of session
+  #+BEGIN_SRC emacs-lisp
+    (use-package try
+      :ensure t)
+  #+END_SRC
+
+* which-key
+  bring up help for key bindings
+  #+BEGIN_SRC emacs-lisp
+    (use-package which-key
+      :ensure t
+      :config (which-key-mode))
+  #+END_SRC
+
+* buffers
+  #+BEGIN_SRC emacs-lisp
+    (defalias 'list-buffers 'ibuffer) ; make ibuffer default
+  #+END_SRC
+
+* Ace-Window
+  Ace-Window allows for easy switching between widows using C-x o NUM
+  #+BEGIN_SRC emacs-lisp
+    (use-package ace-window
+      :ensure t
+      :init
+      (progn
+        (global-set-key [remap other-window] 'ace-window)
+        (custom-set-faces
+         '(aw-leading-char-face
+           ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+        ))
+  #+END_SRC
+
+* Council And Swiper
+  council and swiper allowing for improved search
+  #+BEGIN_SRC emacs-lisp
+    (use-package counsel
+      :ensure t
+      )
+
+    (use-package swiper
+      :ensure try
+      :config
+      (progn
+        (ivy-mode 1)
+        (defvar ivy-use-virtual-buffers t)
+        (defvar enable-recursive-minibuffers t)
+        (global-set-key "\C-s" 'swiper)
+        (global-set-key (kbd "C-c C-r") 'ivy-resume)
+        (global-set-key (kbd "<f6>") 'ivy-resume)
+        (global-set-key (kbd "M-x") 'counsel-M-x)
+        (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+        (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+        (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+        (global-set-key (kbd "<f1> l") 'counsel-find-library)
+        (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+        (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+        (global-set-key (kbd "C-c g") 'counsel-git)
+        (global-set-key (kbd "C-c j") 'counsel-git-grep)
+        (global-set-key (kbd "C-c k") 'counsel-ag)
+        (global-set-key (kbd "C-x l") 'counsel-locate)
+        (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+        ))
+
+  #+END_SRC
+
+* Avy - navigation
+#+BEGIN_SRC emacs-lisp
+  ;; Avy - navigation
+  (use-package avy
+    :ensure t
+    :bind ("M-s" . avy-goto-char))
+#+END_SRC
+
+* Auto Completion
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-complete
+    :ensure t
+    :init
+    (progn
+      (ac-config-default)
+      (global-auto-complete-mode t)
+      ))
+#+END_SRC
+
+* Flycheck
+  on the fly syntax checking
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :ensure t
+    :init
+    (global-flycheck-mode t))
+#+END_SRC
+
+
+* Flyspell & Ispell
+#  #+BEGIN_SRC emacs-lisp
+#    (dolist (hook '(text-mode-hook))
+#      (add-hook hook (lambda () (flyspell-mode 1))))
+#    (setq ispell-program-name "/usr/local/bin/ispell")
+#  #+END_SRC
+
+
+* yasnippet
+  snippets and snippet expansion
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :init
+    (yas-global-mode 1))
+#+END_SRC
+
+* ggtags
+  tags for code navigation
+#+BEGIN_SRC emacs-lisp
+  (use-package ggtags
+    :ensure t
+    :config
+    (add-hook 'c-mode-common-hook
+              (lambda ()
+                (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                  (ggtags-mode 1))))
+    )
+#+END_SRC
+
+* Themes
+  #+BEGIN_SRC emacs-lisp
+    (use-package color-theme
+      :ensure t)
+    (use-package moe-theme
+      :ensure t
+      :config
+      (load-theme 'moe-dark t))
+      
+  #+END_SRC
+  
+
+* Python
+  #+BEGIN_SRC emacs-lisp
+
+  #+END_SRC
+* Exec-path-from-shell
+  #+BEGIN_SRC emacs-lisp
+    (when (memq window-system '(mac ns))
+      (exec-path-from-shell-initialize))
+  #+END_SRC

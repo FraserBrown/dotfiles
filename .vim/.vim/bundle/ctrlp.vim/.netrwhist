@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/fraserbrown/Documents/progamming-practice/cpp-practice/helloworld'
+let g:netrw_dirhist_2='/Users/fraserbrown/Documents/progamming-practice/cpp-practice/grades'
+let g:netrw_dirhist_3='/Users/fraserbrown/Documents/progamming-practice'
+let g:netrw_dirhist_4='/Users/fraserbrown/Documents/progamming-practice/cpp-practice'
+let g:netrw_dirhist_5='/Users/fraserbrown/Documents/progamming-practice/cpp-practice/grades'
