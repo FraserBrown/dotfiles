@@ -1,0 +1,6 @@
+# this gitignore file is so themes dir creation isnt required on clone
+
+# ignore everything in this directory
+*
+# tells git to not ignore the .gitignore file
+!.gitignore
