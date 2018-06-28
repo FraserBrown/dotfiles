@@ -2,19 +2,14 @@
 " https://dougblack.io/words/a-good-vimrc.html
 
 
-
-
-" use Pathogen
-" execute pathogen#infect()
-
-"call pathogen#runtime_append_all_bundles()  " use pathogen
-
 let mapleader = ','     " leader is a comma
+
 
 syntax enable " enable syntax processing
 "colorscheme Oceanic "desert change colour scheme
-color dracula
+"color dracula
 "color challenger_deep
+"color base16-nord
 
 filetype plugin indent on
 
@@ -59,9 +54,8 @@ nnoremap <space> za
 set foldmethod=indent   " fold based on indent level
 
 "
-" Moving
+" Moving:
 "
-
 " move vertically by visual lin
 nnoremap j gj
 nnoremap k gk
@@ -72,9 +66,20 @@ nnoremap gV `[v`]
 " jk is escape
 inoremap jk <ESC>
 
-" toggle gundo
-" may need plugin installed
-nnoremap <leader>u :GundoToggle<CR>
+" Split Pane Navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
+
+" enable code folding:
+"set foldmethod=indent
+"set foldlevel=99
+" enable folding with spacebar:
+"nnoremap <space> za
+
 
 " save session
 " may need plugin installed
@@ -84,26 +89,68 @@ nnoremap <leader>s :mksession<CR>
 " may need plugin 'The Silver Searcher' installed
 nnoremap <leader>a :Ag
 
+"
+" Git:
+"
+autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype markdown setlocal spell textwidth=72
+autocmd Filetype text setlocal spell textwidth=72
 
-" Plugins
-
-" GUndo
-
-" The Silver Searcher
-
-" CtrlP plugin install location
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+"
+" Python Code Style:
+"
+autocmd BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix encoding=utf-8
 
 
+"
+" Plugins:
+"
+" Set up vim plug on load if not present
+if empty(glob('~/.vim/autoload/plug.vim'))
+          silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+          autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" list of plugins
+call plug#begin('~/.vim/bundle')
+    Plug    'tmhedberg/SimpylFold'
+    Plug    'vim-scripts/indentpython.vim'
+    Plug    'davidhalter/jedi-vim'
+    Plug    'vim-syntastic/syntastic'
+    Plug    'nvie/vim-flake8'
+    Plug    'scrooloose/nerdtree'
+    Plug    'kien/ctrlp.vim'
+    Plug    'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+call plug#end()
+
+" SimplyFold
+let g:SimpylFold_docstring_preview=1
+
+" Jedi (python autocomplete)
+"
+" Possible alternative to Jedi YouCompleteMe
+" (https://github.com/Valloric/YouCompleteMe) 
+" Jedi (python) Commands reminder: 
+" Completion <C-Space>
+" Goto assignments <leader>g (typical goto function)
+" Goto definitions <leader>d (follow identifier as far as possible, includes
+" imports and statements)
+" Show Documentation/Pydoc K (shows a popup with assignments)
+" Renaming <leader>r
+" Usages <leader>n (shows all the usages of a name)
+" Open module, e.g. :Pyimport os (opens the os module)
 
 " CtrlP settings
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
-" let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-
+" Powerline Settings
+set laststatus=2
+set t_Co=256
 
 
 
