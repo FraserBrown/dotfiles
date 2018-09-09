@@ -23,6 +23,7 @@ function help_display() {
 # basic vim setup
 function vim_setup() {
     $(cp -r .vim ${INSTALL_DIR})
+    # TODO: add sim link instead of copy.
     $(cp .vimrc ${INSTALL_DIR})
 }
 
@@ -38,6 +39,8 @@ function bash_setup() {
     # current functionallity is just for .bashrc
     $(cp -r .bashrc ${INSTALL_DIR})
 }
+
+# TODO: Add jetbrains .vim plugin file copy function.
 
 while getopts "Vhbved:" opt
 do

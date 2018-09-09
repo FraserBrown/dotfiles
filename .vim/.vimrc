@@ -10,12 +10,21 @@ syntax enable " enable syntax processing
 "color dracula
 "color challenger_deep
 "color base16-nord
+if has("gui_running")
+    colorscheme base16-railcasts
+elseif has("gui_macvim")
+    let macvim_skip_colorscheme=1
+    colorscheme base16-railcasts
+else
+    " colorscheme base16-railscasts
+endif
 
 filetype plugin indent on
 
 set tabstop=4 " number of existing spaces per TAB
 set softtabstop=4  " number of spaces in a tab when editing
 set expandtab  " On pressing tab, insert 4 spaces
+set relativenumber " sets line numbers to be relative
 
 "show tabs as >~~~~ and trailing whitepsace ~'s
 set list
@@ -23,6 +32,19 @@ set listchars=tab:>~,trail:~
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Rename files within vim
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>r :call RenameFile()<cr>
+
 
 "
 " UI Config
@@ -99,9 +121,12 @@ autocmd Filetype text setlocal spell textwidth=72
 "
 " Python Code Style:
 "
-autocmd BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix encoding=utf-8
+autocmd BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 expandtab autoindent fileformat=unix encoding=utf-8
 
-
+"
+" C++ Code Sytle:
+"
+autocmd BufNewFile, BufRead *.cpp set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 expandtab autoindent fileformat=unix encoding=utf-8
 "
 " Plugins:
 "
@@ -122,6 +147,8 @@ call plug#begin('~/.vim/bundle')
     Plug    'scrooloose/nerdtree'
     Plug    'kien/ctrlp.vim'
     Plug    'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+    Plug    'wikitopian/hardmode'
+    Plug    'JamshedVesuna/vim-markdown-preview'
 call plug#end()
 
 " SimplyFold
@@ -152,7 +179,13 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 set laststatus=2
 set t_Co=256
 
+" Vim-Hardmode
+" let g:hardtime_default_on = 1
+" let g:hardtime_showmsg = 1
 
-
-
+" Vim Markdown Preview
+let vim_markdown_preview_toggle=1
+let vim_markdown_preview_hotkey='<C-p>'
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_github=1
 
