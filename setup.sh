@@ -2,7 +2,7 @@
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
-INSTALL_DIR="~/"
+INSTALL_DIR="~"
 verbose=0
 
 
@@ -22,9 +22,10 @@ function help_display() {
 
 # basic vim setup
 function vim_setup() {
-    $(cp -r .vim ${INSTALL_DIR})
+    # $(cp -r .vim ${INSTALL_DIR})
     # TODO: add sim link instead of copy.
-    $(cp .vimrc ${INSTALL_DIR})
+    $(ln -sf ${PWD}/.vim/.vimrc ${INSTALL_DIR}/.vimrc)
+    # $(cp .vimrc ${INSTALL_DIR})
 }
 
 # basic emacs setup
@@ -37,7 +38,9 @@ function emacs_setup() {
 function bash_setup() {
     # TODO: Customise install for different bash .files
     # current functionallity is just for .bashrc
-    $(cp -r .bashrc ${INSTALL_DIR})
+    # $(cp -r .bashrc ${INSTALL_DIR})
+    $(ln -sf ${PWD}/.bashrc ${INSTALL_DIR}/.bashrc)
+
 }
 
 # TODO: Add jetbrains .vim plugin file copy function.
@@ -59,7 +62,7 @@ do
             ;;
         b)
             echo "Starting Bash Setup"
-            # bash_setup
+            bash_setup
             ;;
         V)
             verbose=1
